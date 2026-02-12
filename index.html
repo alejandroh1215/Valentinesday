@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Susy — Will you be my Valentine?</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="stage" id="stage">
+    <h1 class="title">Susy — Will you be my Valentine?</h1>
+    <p class="subtitle">Choose with your heart ❤️</p>
+
+    <div class="buttons" id="buttons">
+      <button id="yesBtn" class="btn yes" aria-label="Yes, I will!">Yes</button>
+      <button id="noBtn" class="btn no" aria-label="No, I won't">No</button>
+    </div>
+
+    <!-- Photos: add your pictures to images/you.jpg and images/susy.jpg -->
+    <div class="photos" aria-hidden="false">
+      <img src="images/you.jpg" alt="Alejandro" class="photo photo-left" />
+      <img src="images/susy.jpg" alt="Susy" class="photo photo-right" />
+    </div>
+
+    <!-- Small shark cartoon (inline SVG) -->
+    <div class="shark" aria-hidden="true">
+      <!-- simple friendly shark -->
+      <svg viewBox="0 0 200 120" width="160" height="96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="cute shark">
+        <g transform="translate(0,6)">
+          <ellipse cx="80" cy="60" rx="70" ry="28" fill="#9ad1e6"/>
+          <path d="M10 60 Q30 38 70 48 Q110 60 160 50 Q140 80 100 74 Q60 70 10 60Z" fill="#7fc0d8"/>
+          <circle cx="100" cy="50" r="6" fill="#1b1b1b"/>
+          <path d="M45 56 C52 62, 63 64, 72 62" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <polygon points="5,60 0,52 15,56" fill="#7fc0d8"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Celebration overlay -->
+    <div id="overlay" class="overlay hidden" role="dialog" aria-modal="true">
+      <div class="overlay-content">
+        <h2 id="finalMessage">Yes! I love you 💖</h2>
+        <p class="sub">Happy Valentine's Day</p>
+        <button id="closeBtn" class="btn close">Close</button>
+      </div>
+    </div>
+
+    <!-- Canvas used for confetti/hearts -->
+    <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+:root{
+  --bg:#fff0f6;
+  --card:#ffecf3;
+  --accent:#ff4d6d;
+  --muted:#8b5c6a;
+  --yes:#28c76f;
+  --no:#ff6b6b;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
+  background: radial-gradient(1200px 800px at 10% 10%, #fff8f9 0%, var(--bg) 40%, #ffeef8 100%);
+  color:#4a2b33;
+  -webkit-font-smoothing:antialiased;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+
+.stage{
+  width:100%;
+  max-width:860px;
+  min-height:460px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,242,246,0.9));
+  border-radius:18px;
+  padding:36px;
+  box-shadow: 0 10px 30px rgba(80,20,40,0.12);
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+}
+
+/* heading */
+.title{
+  margin:0 0 6px 0;
+  font-size:2rem;
+  letter-spacing:0.2px;
+}
+.subtitle{
+  margin:0 0 24px 0;
+  color:var(--muted);
+  margin-bottom:18px;
+}
+
+/* Buttons area */
+.buttons{
+  position:relative;
+  height:220px;
+  display:block; /* use absolute for children; display block avoids stacking artifacts */
+}
+
+/* Base button styles */
+.btn{
+  border:0;
+  padding:18px 34px;
+  font-size:1.1rem;
+  border-radius:999px;
+  cursor:pointer;
+  user-select:none;
+  transition:transform 150ms ease, box-shadow 150ms ease, left 200ms ease, top 200ms ease, opacity 200ms ease;
+  box-shadow: 0 8px 18px rgba(80,20,40,0.12);
+  color:white;
+  outline:none;
+  position:absolute;
+}
+
+/* Yes button (centered precisely) */
+.yes{
+  background:linear-gradient(180deg,var(--yes), #00a854);
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%) scale(1);
+  transform-origin:center center;
+  z-index:3;
+}
+
+/* No button (start right-ish) */
+.no{
+  background:linear-gradient(180deg,var(--no), #e04d4d);
+  left:70%;
+  top:45%;
+  transform: scale(1);
+  transform-origin:center center;
+  z-index:2;
+}
+
+/* Photos area (top-right) */
+.photos{
+  position:absolute;
+  right:18px;
+  top:18px;
+  display:flex;
+  gap:8px;
+  align-items:center;
+  z-index:4;
+}
+.photo{
+  width:64px;
+  height:64px;
+  object-fit:cover;
+  border-radius:10px;
+  box-shadow: 0 6px 18px rgba(80,20,40,0.12);
+  border: 3px solid rgba(255,255,255,0.85);
+}
+
+/* Shark position */
+.shark{
+  position:absolute;
+  left:12px;
+  bottom:8px;
+  opacity:0.95;
+  z-index:2;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.08));
+}
+
+/* Close button in overlay */
+.btn.close{
+  position:static;
+  margin-top:12px;
+  background:#ffffff;
+  color:#b2224a;
+  box-shadow:none;
+  border:2px solid rgba(255,50,100,0.08);
+  padding:10px 18px;
+}
+
+/* Overlay */
+.overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  backdrop-filter: blur(6px) saturate(1.05);
+  background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,230,240,0.18));
+  z-index:50;
+}
+.overlay.hidden{ display:none }
+.overlay-content{
+  background:rgba(255,255,255,0.96);
+  padding:28px;
+  border-radius:14px;
+  text-align:center;
+  box-shadow: 0 14px 40px rgba(120,20,60,0.18);
+  max-width:620px;
+  width:90%;
+}
+.overlay-content h2{
+  margin:0;
+  font-size:2rem;
+  color:var(--accent);
+}
+.overlay-content p{ color:var(--muted); margin:8px 0 0 0; }
+
+/* Canvas */
+.confetti-canvas{
+  position:absolute;
+  inset:0;
+  z-index:40;
+  pointer-events:none;
+}
+
+/* small screens */
+@media (max-width:720px){
+  .photos{ right:12px; top:12px }
+  .photo{ width:56px; height:56px }
+}
+@media (max-width:560px){
+  .buttons{ height:180px }
+  .btn{ padding:14px 22px; font-size:1rem }
+  .title{ font-size:1.5rem }
+  .no{ left:74% }
+  .shark{ display:none } /* hide shark on very small screens to save space */
+}
